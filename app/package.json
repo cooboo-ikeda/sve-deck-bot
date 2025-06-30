@@ -1,0 +1,11 @@
+{
+  "name": "sve-deck-bot",
+  "type": "module",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "google-auth-library": "^9.15.1",
+    "google-spreadsheet": "^4.1.4",
+    "puppeteer": "^24.1.1"
+  }
+}
