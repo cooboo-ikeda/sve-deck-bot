@@ -1,0 +1,30 @@
+name: Run bushinavi-getter weekly
+
+on:
+  schedule:
+    # 毎週月曜日の0:00 UTC（日本時間9:00）に実行
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  run-bushinavi-getter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./app
+
+      - name: Run bushinavi-getter.js
+        run: node bushinavi-getter.js
+        working-directory: ./app
+        env:
+          GAS_POST_URL: ${{ secrets.GAS_POST_URL }}
