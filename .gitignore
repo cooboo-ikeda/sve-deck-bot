@@ -1,4 +1,5 @@
-/docker-compose.yml
-/app/node_modules
-/app/.env
-/app/package-lock.json
+node_modules/
+*.json
+!.github/
+.env
+secrets.*
